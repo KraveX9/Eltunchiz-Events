@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eltunchiz Events | Luxury Event Planning</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration for Custom Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: '#1A2A47', // Deep blue from the wedding photos
+                        royalLight: '#2C3E5E',
+                        gold: '#D4AF37', // Luxury gold accent
+                        goldHover: '#B8942A',
+                        champagne: '#FDFBF7', // Soft off-white for backgrounds
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1A2A47; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        
+        /* Smooth Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Glassmorphism for Form */
+        .glass-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-champagne antialiased overflow-x-hidden">
+
+    <!-- FLOATING WHATSAPP BUTTON (Accessibility) -->
+    <a href="https://wa.me/2349159363249?text=Hello%20Eltunchiz%20Events,%20I'd%20like%20to%20make%20an%20enquiry." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider">Eltunchiz <span class="text-gold italic">Events</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-white hover:text-gold transition font-medium text-sm tracking-wide uppercase">Home</a>
+                    <a href="#services" class="text-white hover:text-gold transition font-medium text-sm tracking-wide uppercase">Services</a>
+                    <a href="#portfolio" class="text-white hover:text-gold transition font-medium text-sm tracking-wide uppercase">Portfolio</a>
+                    <a href="#booking" class="bg-gold text-royal px-6 py-2.5 rounded-full font-semibold hover:bg-white transition duration-300 text-sm tracking-wide uppercase">Book Now</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-royal border-t border-royalLight">
+            <div class="px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-gold text-lg">Home</a>
+                <a href="#services" class="text-white hover:text-gold text-lg">Services</a>
+                <a href="#portfolio" class="text-white hover:text-gold text-lg">Portfolio</a>
+                <a href="#booking" class="bg-gold text-royal px-6 py-3 rounded-full text-center font-semibold">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Elegant Wedding" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-royal/90 to-royal/60"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center md:text-left w-full">
+            <div class="max-w-2xl">
+                <span class="text-gold font-semibold tracking-[0.2em] uppercase text-sm mb-4 block reveal">Abuja & Kaduna's Premier Event Planner</span>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-tight mb-6 reveal" style="transition-delay: 100ms;">
+                    Crafting Luxury, <br> Creating <span class="text-gold italic">Memories.</span>
+                </h1>
+                <p class="text-gray-200 text-lg mb-8 max-w-lg reveal" style="transition-delay: 200ms;">
+                    From intimate luxury weddings to grand corporate galas, we transform your vision into an unforgettable reality. Available nationwide.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start reveal" style="transition-delay: 300ms;">
+                    <a href="#booking" class="bg-gold text-royal px-8 py-4 rounded-full font-bold hover:bg-white transition duration-300 text-center shadow-lg hover:shadow-xl">
+                        Start Planning Today
+                    </a>
+                    <a href="#portfolio" class="border border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-royal transition duration-300 text-center">
+                        View Our Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS / TRUST BANNER -->
+    <div class="bg-royalLight py-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div class="reveal">
+                    <div class="font-serif text-4xl font-bold text-gold mb-2">50+</div>
+                    <div class="text-sm uppercase tracking-wider">Events Executed</div>
+                </div>
+                <div class="reveal" style="transition-delay: 100ms;">
+                    <div class="font-serif text-4xl font-bold text-gold mb-2">100%</div>
+                    <div class="text-sm uppercase tracking-wider">Client Satisfaction</div>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="font-serif text-4xl font-bold text-gold mb-2">2</div>
+                    <div class="text-sm uppercase tracking-wider">Major Cities</div>
+                </div>
+                <div class="reveal" style="transition-delay: 300ms;">
+                    <div class="font-serif text-4xl font-bold text-gold mb-2">24/7</div>
+                    <div class="text-sm uppercase tracking-wider">Client Support</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-champagne">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-gold font-semibold tracking-widest uppercase text-sm">What We Do</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-royal mt-3 mb-4">Our Signature Services</h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-500 border-b-4 border-transparent hover:border-gold reveal group">
+                    <div class="w-16 h-16 bg-royal/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-ring text-3xl text-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royal mb-3">Luxury Weddings</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Bespoke planning and coordination for your perfect day, from traditional ceremonies to white weddings.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-500 border-b-4 border-transparent hover:border-gold reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-royal/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-building text-3xl text-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royal mb-3">Corporate Events</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Professional planning for conferences, product launches, and end-of-year parties that impress.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-500 border-b-4 border-transparent hover:border-gold reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-royal/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-star text-3xl text-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royal mb-3">Military Events</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Honoring excellence with dignified and perfectly executed military ceremonies and galas.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-500 border-b-4 border-transparent hover:border-gold reveal group" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-royal/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-cake-candles text-3xl text-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royal mb-3">Birthdays & More</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">From milestone birthdays to intimate celebrations, we bring the fun and the elegance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO PREVIEW -->
+    <section id="portfolio" class="py-24 bg-royal">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div>
+                    <span class="text-gold font-semibold tracking-widest uppercase text-sm">Our Gallery</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-3">Recent Masterpieces</h2>
+                </div>
+                <a href="https://www.instagram.com/eltunchizevents" target="_blank" class="text-gold hover:text-white transition font-medium mt-4 md:mt-0 flex items-center gap-2">
+                    View Full Instagram <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative overflow-hidden rounded-xl group h-80 reveal">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop" alt="Wedding Setup" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-royal/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif text-xl font-bold">Royal Blue Traditional</h4>
+                            <p class="text-gold text-sm">Wedding Planning</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-xl group h-80 reveal" style="transition-delay: 100ms;">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" alt="Corporate Event" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-royal/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif text-xl font-bold">Annual Gala Dinner</h4>
+                            <p class="text-gold text-sm">Corporate Event</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-xl group h-80 reveal" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop" alt="Birthday Party" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-royal/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif text-xl font-bold">Milestone 40th</h4>
+                            <p class="text-gold text-sm">Birthday Celebration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART BOOKING & AUTOMATION SECTION -->
+    <section id="booking" class="py-24 bg-champagne relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left Info Side -->
+                <div class="reveal">
+                    <span class="text-gold font-semibold tracking-widest uppercase text-sm">Automated Booking</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-royal mt-3 mb-6">Let's Plan Your <br> Next Event.</h2>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        We make planning effortless. Fill out the smart form, and our system will instantly compile your details and connect you directly to our lead planner via WhatsApp for a fast response.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-gold flex-shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-royal">Call or WhatsApp</h4>
+                                <a href="tel:+2349159363249" class="text-gray-600 hover:text-gold transition">+234 915 936 3249</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-gold flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-royal">Email Us</h4>
+                                <a href="mailto:eltunchizevents@gmail.com" class="text-gray-600 hover:text-gold transition">eltunchizevents@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-gold flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-royal">Location</h4>
+                                <p class="text-gray-600">Abuja & Kaduna (Available Nationwide)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Side (Automation) -->
+                <div class="bg-royal rounded-3xl shadow-2xl p-8 md:p-10 glass-form relative overflow-hidden reveal" style="transition-delay: 200ms;">
+                    <!-- Decorative element -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-bl-full pointer-events-none"></div>
+
+                    <h3 class="font-serif text-2xl font-bold text-white mb-6">Instant Booking Request</h3>
+                    
+                    <form id="bookingForm" class="space-y-5">
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" id="clientName" required class="w-full bg-royalLight border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition" placeholder="e.g. John Doe">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Event Type</label>
+                                <select id="eventType" required class="w-full bg-royalLight border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition appearance-none">
+                                    <option value="" disabled selected>Select service</option>
+                                    <option value="Luxury Wedding">Luxury Wedding</option>
+                                    <option value="Corporate Event">Corporate Event</option>
+                                    <option value="Military Event">Military Event</option>
+                                    <option value="Birthday Party">Birthday Party</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Event Date</label>
+                                <input type="date" id="eventDate" required class="w-full bg-royalLight border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition [color-scheme:dark]">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Estimated Guest Count</label>
+                            <select id="guestCount" required class="w-full bg-royalLight border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition appearance-none">
+                                <option value="" disabled selected>Select range</option>
+                                <option value="Less than 50">Less than 50</option>
+                                <option value="50 - 150">50 - 150</option>
+                                <option value="150 - 300">150 - 300</option>
+                                <option value="300+">300+</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Additional Details (Optional)</label>
+                            <textarea id="eventDetails" rows="3" class="w-full bg-royalLight border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition" placeholder="Tell us about your vision..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gold text-royal font-bold py-4 rounded-lg hover:bg-white transition duration-300 shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Send via WhatsApp
+                        </button>
+                        <p class="text-center text-xs text-gray-400 mt-2">Clicking will open WhatsApp with your pre-filled details.</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-royal text-white py-12 border-t border-royalLight">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-wider">Eltunchiz <span class="text-gold italic">Events</span></span>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">Abuja & Kaduna's premier event planning company. We specialize in luxury weddings, corporate events, and military ceremonies nationwide.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gold mb-4 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#booking" class="hover:text-white transition">Book a Consultation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gold mb-4 uppercase tracking-wider">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/eltunchizevents" target="_blank" class="w-10 h-10 bg-royalLight rounded-full flex items-center justify-center hover:bg-gold hover:text-royal transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/2349159363249" target="_blank" class="w-10 h-10 bg-royalLight rounded-full flex items-center justify-center hover:bg-gold hover:text-royal transition"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:eltunchizevents@gmail.com" class="w-10 h-10 bg-royalLight rounded-full flex items-center justify-center hover:bg-gold hover:text-royal transition"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-royalLight pt-8 text-center text-sm text-gray-500">
+                &copy; 2024 Eltunchiz Events. All rights reserved. Designed for excellence.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-royal', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-royal', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // 3. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger once on load
+
+        // 4. SMART WHATSAPP BOOKING AUTOMATION
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('clientName').value;
+            const eventType = document.getElementById('eventType').value;
+            const date = document.getElementById('eventDate').value;
+            const guests = document.getElementById('guestCount').value;
+            const details = document.getElementById('eventDetails').value || 'No additional details provided.';
+            
+            // Format the date nicely (e.g., 2024-10-05 -> Oct 5, 2024)
+            const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Construct the automated message
+            const message = `*New Booking Request - Eltunchiz Events*%0A%0A` +
+                            `*Name:* ${name}%0A` +
+                            `*Event Type:* ${eventType}%0A` +
+                            `*Date:* ${formattedDate}%0A` +
+                            `*Guest Count:* ${guests}%0A%0A` +
+                            `*Details:* ${details}%0A%0A` +
+                            `Hello Eltunchiz Events, I'd like to discuss planning this event with you.`;
+            
+            // WhatsApp Number
+            const phoneNumber = '2349159363249'; 
+            
+            // Open WhatsApp with the automated message
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+            
+            // Optional: Reset form or show success state
+            this.reset();
+            alert('Your request is being sent to our lead planner on WhatsApp. We look forward to creating magic with you!');
+        });
+    </script>
+</body>
+  </html>
